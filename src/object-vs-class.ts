@@ -31,5 +31,5 @@ class Employee {
 const employee = new Employee ('Tisha', 22200);
 const employee2 = new Employee ('Mir', 34000);
 
-console.log(employee instanceof Employee);
-console.log(employee2 instanceof Employee);
+// console.log(employee instanceof Employee);
+// console.log(employee2 instanceof Employee);
