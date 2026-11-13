@@ -3,12 +3,12 @@
 class Employee {
     constructor (
         public name : string, 
-        private _baseSalary : number,
+        protected _baseSalary : number,
     ) {}
 
-    get baseSalary () : number {
-        return this._baseSalary;
-    }
+    // get baseSalary () : number {
+    //     return this._baseSalary;
+    // }
 
 
     set baseSalary (newSalary : number) {
@@ -25,11 +25,30 @@ class Employee {
 
 class Manager extends Employee {
    
-    teamMemberCount : number;
+//     teamMemberCount : number;
 
-    constructor (name : string, _baseSalary : number, teamMemberCount : number) {
+//     constructor (name : string, _baseSalary : number, teamMemberCount : number) {
+//         super (name, _baseSalary)
+//         this.teamMemberCount = teamMemberCount;
+//     }
+// }
+   
+// shorthand
+    constructor (
+        name : string, 
+        _baseSalary : number, 
+       public teamMemberCount : number
+    ) {
+        
         super (name, _baseSalary)
-        this.teamMemberCount = teamMemberCount;
+    }
+
+    describeWork () : string {
+        return `${this.name} manages ${this.teamMemberCount} people`;
+    }
+
+    describeManager () : string {
+        return `${this.name} earns ${this._baseSalary}`
     }
 }
 
@@ -38,7 +57,11 @@ const employee = new Employee ('Tisha', 22000);
 console.log(employee.describe ());
 
 const manager = new Manager ('Tasif', 25000, 20);
-console.log(manager);
+console.log(manager.describe ());
+console.log(manager.describeWork ());
+console.log(manager.describeManager ());
+
+
 
 
 

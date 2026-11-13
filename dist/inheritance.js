@@ -6,9 +6,9 @@ class Employee {
         this.name = name;
         this._baseSalary = _baseSalary;
     }
-    get baseSalary() {
-        return this._baseSalary;
-    }
+    // get baseSalary () : number {
+    //     return this._baseSalary;
+    // }
     set baseSalary(newSalary) {
         if (newSalary < 0) {
             throw new Error('Salary cannot be negative value');
@@ -21,13 +21,28 @@ class Employee {
 }
 class Manager extends Employee {
     teamMemberCount;
+    //     teamMemberCount : number;
+    //     constructor (name : string, _baseSalary : number, teamMemberCount : number) {
+    //         super (name, _baseSalary)
+    //         this.teamMemberCount = teamMemberCount;
+    //     }
+    // }
+    // shorthand
     constructor(name, _baseSalary, teamMemberCount) {
         super(name, _baseSalary);
         this.teamMemberCount = teamMemberCount;
+    }
+    describeWork() {
+        return `${this.name} manages ${this.teamMemberCount} people`;
+    }
+    describeManager() {
+        return `${this.name} earns ${this._baseSalary}`;
     }
 }
 const employee = new Employee('Tisha', 22000);
 console.log(employee.describe());
 const manager = new Manager('Tasif', 25000, 20);
-console.log(manager);
+console.log(manager.describe());
+console.log(manager.describeWork());
+console.log(manager.describeManager());
 export {};
